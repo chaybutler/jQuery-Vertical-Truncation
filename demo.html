@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>VerTrunc Demo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="jquery.vertrunc.js"></script>
+  <script type="text/javascript">
+		data={
+			"A":"A simple paragraph, condensed with default options. Sed vel lorem nec nisi porttitor dictum. Morbi pede leo, dictum ut, mattis quis, aliquet ut, libero.Now is the time for all good men to come to the aid of their country. Vini, vidi, vici. Jack and Jill went over the hill to get a bucket of water. 111 All work and no play makes jack a dull boy. There was an old lady who lived in a shoe."
+		}
+       $(document).ready(function(){
+		  for(a in data){
+			$("#itemOrig"+a).html(data[a]);
+			$.verTrunc(data[a],"itemTarget"+a,"truncTarget");
+		}
+		  
+       });
+    </script>
+  <style>
+	.truncTarget{display:block;margin:5px 0;height:113px;max-height:113px;width:291px;max-width:291px;font:12px Verdana, Arial, Helvetica, sans-serif;overflow:hidden;border:1px solid blue;}
+	#vertruncWrapper textarea{position:absolute;bottom:5000px;right:5000px;display:block;}
+	.loading{display:block;background-image:url(gray-loader.gif);background-position:105px 30px;background-repeat:no-repeat;}
+	.origVal{display:block;margin:5px 0;height:113px;max-height:113px;width:311px;max-width:311px;font:12px Verdana, Arial, Helvetica, sans-serif;overflow-y:scroll;border:1px solid red;}
+  </style>
+ </head>
+ <body>
+ <h1>Chay's Vertical Truncation Demo</h1>
+ <p>Feel free to try it in different browsers, with different fonts and  and different zooms...</p>
+  <h3>Important notes: </h3>
+  <ul>
+  <li>Make sure you create an empty span with the id: "vertruncWrapper" (with its associated style!)</li>
+  <li>The longer your default/original text is, the longer it will take. I would advise having MySql/PHP/etc handle the majority of the truncation beforehand! </li>
+  <li>The styles within .truncTarget are important. Make sure you specify the margin, font, height, and width as I have!</li>
+  <li>The package includes jquery.vertrunc.min.js as well. Use this if you don't need to see the full source. It's a (slightly) smaller file to include.</li>
+  <li>I just realized, because of the dependancy on scrollHeight, that this won't work with anything before IE8. I'm sure there is some other solution to determine if there is a scrollbar, but I don't have time to research it right now...</li>
+  </ul>
+ <h3>Download:</h3>
+  <p>You can download the archive here:</p>
+  <a href="vertrunc.zip">vertrunc.zip</a>
+ <h3>Original Value:</h3>
+ <span id="itemOrigA" class="origVal"></span>
+ <br /><br />
+<h3> Truncated Value:</h3>
+ <span id="itemTargetA" class="truncTarget loading"></span>
+  <span id="vertruncWrapper"></span>
+ </body>
+ </html>
