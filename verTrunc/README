@@ -6,4 +6,7 @@ Important notes:
 * The longer your default/original text is, the longer it will take. I would advise having MySql/PHP/etc handle the majority of the truncation beforehand! 
 * The styles within .truncTarget are important. Make sure you specify the margin, font, height, and width as I have!
 * The package includes jquery.vertrunc.min.js as well. Use this if you don't need to see the full source. It's a (slightly) smaller file to include.
-* I just realized, because of the dependancy on scrollHeight, that this won't work with anything before IE8. I'm sure there is some other solution to determine if there is a scrollbar, but I don't have time to research it right now...
+
+CHANGELOG:
+1.2
+* Fixed browser compatability issues with older versions of IE.
