@@ -1,7 +1,11 @@
 (function($) {
-$.fn.hasScrollBar=function(){return this.get(0).scrollHeight > this.height();}
+$.fn.hasScrollBar=function(){
+	var $this=$(this);
+	maxWidth=Math.max(0,$(this).outerWidth(true));
+	return maxWidth>$this.width();
+}
 $.verTrunc=function(data,dest,targetClass){
-	$('<textarea />').attr("id",dest+"TA").addClass(targetClass).width($('#'+dest).parent().width()).appendTo("#vertruncWrapper").val($.trim(data)).html($.trim(data)).text($.trim(data));
+	$('<textarea />').attr("id",dest+"TA").addClass(targetClass).width($('#'+dest).parent().width()+18).height($('#'+dest).parent().height()+18).appendTo("#vertruncWrapper").val($.trim(data)).html($.trim(data)).text($.trim(data));
 	dest='#'+dest;
 	debug("Temp TA:"+dest+"TA"+"\nDest: "+dest);
 	condensedLength=false;
